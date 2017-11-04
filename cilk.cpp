@@ -42,7 +42,7 @@ int main()
 	double result;
 	 const int a = -1;
 	 const int b = 1;
-	 const int n = 1000000000;
+	 const int n = 10000000;
 	DWORD starttime, elapsedtime;
 	starttime = GetTickCount();
 
