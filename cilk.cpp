@@ -14,7 +14,7 @@ double Integrate_p(const int a, const int b, const int n) // parallel
 
 	sum.set_value(0);
 
-	cilk_for(long int i = 0; i < n - 1; ++i)
+	cilk_for(long int i = 0; i <= n - 1; ++i)
 	{
 		sum += 5 / sqrt(8 - 4 * (a + (i + 0.5)*h)*(a + (i + 0.5)*h));
 	}
@@ -29,7 +29,7 @@ double Integrate_s(const int a, const int b, const int n) // serial
 	double result,sum;
 	const double h = (double)(b - a) / n;
 
-	for(long int i = 0; i < n - 1; ++i)
+	for(long int i = 0; i <= n - 1; ++i)
 	{
 		sum += 5 / sqrt(8 - 4 * (a + (i + 0.5)*h)*(a + (i + 0.5)*h));
 	}
@@ -48,7 +48,7 @@ int main()
 
 	// serial and parallel functions
 
-	result = Integrate_s(a, b, n);
+	result = Integrate_p(a, b, n);
 	//result = Integrate_s(a, b, n);
 
 	elapsedtime = GetTickCount() - starttime;
